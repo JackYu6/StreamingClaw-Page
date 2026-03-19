@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamingClaw</title>
+
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="https://www.lixiang.com/" target="_blank" class="logo-link">
+                    <img src="images/liauto_logo.png" alt="Li Auto Logo" class="logo-img">
+                    <span class="logo-text">Li Auto</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="#framework" class="nav-link">Framework</a>
+                <a href="#streamingmind" class="nav-link">StreamingMind</a>
+                <a href="#memory" class="nav-link">HierarchicalMemory</a>
+                <a href="#proactivemind" class="nav-link">ProactiveMind</a>
+                <a href="#tools" class="nav-link">Tools & Skills</a>
+                <a href="#citation" class="nav-link">Citation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-icon">🚀</span>
+                StreamingClaw
+            </h1>
+            <!-- <h2 class="hero-subtitle">A Streaming Multimodal Agent Framework for Intelligent Assistance</h2> -->
+
+            <!-- Author Information -->
+            <div class="authors">
+                <div class="author-list">
+                    <!-- <span class="author">MindGPT-ov Team<sup>1</sup></span> -->
+                    <span class="author">MindGPT-ov Team</span>
+                </div>
+                <div class="affiliations">
+                    <div class="affiliation">
+                        <!-- <sup>1</sup>Li Auto Inc. -->
+                        Li Auto Inc.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link Buttons -->
+            <div class="hero-links">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-file-pdf"></i> Paper
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fab fa-github"></i> Code
+                </a>
+                <a href="#" class="btn btn-tertiary">
+                    <i class="fas fa-database"></i> Demo
+                </a>
+            </div>
+
+            <!-- Abstract -->
+            <div class="abstract">
+                <h3>Abstract</h3>
+                <p>
+                    Embodied intelligence, AI hardware, autonomous driving, and intelligent cockpits are heavily rely on a real-time perception–decision–action closed loop, posing stringent challenges for real-time streaming video understanding. These scenarios require agents to deliver low-latency, real-time responses to continuously evolving video streams, while also supporting multimodal perception fusion and long-term memory, thereby enabling proactive interaction and anticipatory decision-making for future events. However, existing agents generally suffer from fragmented capabilities, such as supporting only offline video understanding, lacking long-term multimodal memory mechanisms, or struggling to achieve real-time inference and proactive interaction under long-duration, continuous video streams. These shortcomings have become a key bottleneck for agents to sustain perception, make real-time decisions, and execute closed-loop actions in complex real-world environments, severely limiting the deployment and application potential of agents in dynamic, open physical worlds.
+                </p>
+                <p>
+                    To alleviate these critical issues, we propose StreamingClaw, a unified agent framework for real-time streaming video understanding and embodied intelligence. It is also an OpenClaw-compatible framework that supports real-time ingestion and online understanding of video streams. StreamingClaw systematically integrates the following five core capabilities:
+                    (1) It supports real-time streaming reasoning over multimodal inputs.
+                    (2) It supports reasoning about future events and proactive interaction under the online evolution of interaction goals.
+                    (3) It supports multimodal storage, hierarchical evolution, and efficient retrieval of shared memory across multiple agents, tailored for real-time streaming scenarios.
+                    (4) It supports a closed-loop perception–decision–action pipeline. In addition to conventional tools and skills, it also provides streaming tools and action-centric skills tailored for real-world physical environments.
+                    (5) It is compatible with the OpenClaw framework, allowing it to fully leverage the extensive resources and support of the open-source community.
+                </p>
+                <p>
+                    With the above design, StreamingClaw integrates online real-time perception, long-term memory, and proactive interaction capabilities within a unified framework. Moreover, by interfacing with tool and skill libraries, StreamingClaw can translate high-level understanding and decision-making into executable actions, enabling direct control of the real world and thus delivering enhanced deployability and practical value.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Framework Section -->
+        <section id="framework" class="section">
+            <div class="section-header">
+                <h2>Framework</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="framework-diagram">
+                <img src="images/framework.jpg" alt="StreamingClaw Framework" id="frameworkImg">
+                <p class="figure-caption"><strong>Framework Overview.</strong> The StreamingClaw framework consists of three main agents: StreamingMind Agent for multimodal perception, HierarchicalMemory Agent for memory management, and ProactiveMind Agent for proactive planning. These components work together to provide intelligent assistance in streaming scenarios.</p>
+            </div>
+        </section>
+
+        <!-- StreamingMind Agent Section -->
+        <section id="streamingmind" class="section">
+            <div class="section-header">
+                <h2>StreamingMind Agent</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="section-content">
+                <div class="section-text">
+                    <p>
+                        The StreamingMind Agent is responsible for real-time multimodal understanding and processing. It continuously processes incoming video and audio streams, extracting meaningful features and maintaining an up-to-date understanding of the current context.
+                    </p>
+                    <ul class="features-list">
+                        <li><strong>Real-time Processing:</strong> Continuous stream analysis with low latency</li>
+                        <li><strong>Multimodal Fusion:</strong> Seamless integration of visual and audio inputs</li>
+                        <li><strong>Context Awareness:</strong> Dynamic context tracking and updating</li>
+                    </ul>
+                </div>
+                <div class="section-image">
+                    <img src="images/streamingMind_agent.jpg" alt="StreamingMind Agent Architecture" id="streamingMindImg">
+                    <p class="figure-caption"><strong>StreamingMind Agent Architecture.</strong> The agent processes streaming inputs through multiple specialized encoders and fuses the information for downstream tasks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HierarchicalMemory Agent Section -->
+        <section id="memory" class="section">
+            <div class="section-header">
+                <h2>HierarchicalMemory Agent</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="section-content">
+                <div class="section-image">
+                    <img src="images/memory_agent.jpg" alt="HierarchicalMemory Agent Architecture" id="memoryImg">
+                    <p class="figure-caption"><strong>HierarchicalMemory Agent Architecture.</strong> The hierarchical memory structure enables efficient storage and retrieval of both short-term and long-term information.</p>
+                </div>
+                <div class="section-text">
+                    <p>
+                        The HierarchicalMemory Agent implements a multi-level memory architecture that efficiently manages context information across different time scales. It combines working memory for immediate context with episodic memory for historical events.
+                    </p>
+                    <ul class="features-list">
+                        <li><strong>Working Memory:</strong> Fast access to recent context and current state</li>
+                        <li><strong>Episodic Memory:</strong> Long-term storage of important events and experiences</li>
+                        <li><strong>Efficient Retrieval:</strong> Quick access to relevant historical information</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ProactiveMind Agent Section -->
+        <section id="proactivemind" class="section">
+            <div class="section-header">
+                <h2>ProactiveMind Agent</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="proactive-content">
+                <div class="proactive-text">
+                    <p>
+                        The ProactiveMind Agent enables anticipatory action planning and proactive assistance. It predicts user needs and prepares appropriate responses before explicit requests, creating a more natural and efficient interaction experience.
+                    </p>
+                </div>
+
+                <div class="proactive-images">
+                    <div class="proactive-image-item">
+                        <img src="images/proactiveMind_scenarios.jpg" alt="ProactiveMind Scenarios" id="proactiveScenariosImg">
+                        <p class="figure-caption"><strong>ProactiveMind Scenarios.</strong> Example scenarios demonstrating proactive assistance capabilities.</p>
+                    </div>
+                    <div class="proactive-image-item">
+                        <img src="images/proactiveMind_agent_schemes.jpg" alt="ProactiveMind Agent Schemes" id="proactiveSchemesImg">
+                        <p class="figure-caption"><strong>ProactiveMind Agent Schemes.</strong> The internal architecture and decision-making process of the agent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scalable Tools and Skills Section -->
+        <section id="tools" class="section">
+            <div class="section-header">
+                <h2>Scalable Tools and Skills</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="tools-intro">
+                <p>
+                    StreamingClaw provides a comprehensive set of scalable tools and skills that can be dynamically invoked based on user needs and context. These tools extend the agent's capabilities and enable flexible task execution.
+                </p>
+            </div>
+
+            <div class="tools-carousel-container">
+                <div class="carousel">
+                    <button class="carousel-btn carousel-prev" aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carousel-track-container">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <img src="images/video_cut.jpg" alt="Video Cutting Tool">
+                                <p class="figure-caption"><strong>Video Cutting Tool.</strong> The video cutting tool enables automatic extraction and editing of video segments based on user requests and content analysis.</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/call_memory.jpg" alt="Memory Call Tool">
+                                <p class="figure-caption"><strong>Memory Call Tool.</strong> The memory call tool allows efficient retrieval and utilization of stored information from the hierarchical memory system.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn carousel-next" aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-slide="0"></button>
+                    <button class="indicator" data-slide="1"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citation Section -->
+        <section id="citation" class="section">
+            <div class="section-header">
+                <h2>Citation</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="citation-centered">
+                <div class="citation-box">
+                    <h3>BibTeX</h3>
+                    <pre><code class="language-bibtex">@article{streamingclaw2026,
+  title={StreamingClaw Technical Report},
+  author={Author One and Author Two and Author Three and Author Four and Author Five},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre>
+                    <button class="btn btn-copy" id="copyBibtex">
+                        <i class="fas fa-copy"></i> Copy BibTeX
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>StreamingClaw</h4>
+                <p>Technical Report</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#framework">Framework</a></li>
+                    <li><a href="#streamingmind">StreamingMind</a></li>
+                    <li><a href="#memory">HierarchicalMemory</a></li>
+                    <li><a href="#proactivemind">ProactiveMind</a></li>
+                    <li><a href="#tools">Tools & Skills</a></li>
+                    <li><a href="#citation">Citation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Paper</a></li>
+                    <li><a href="#">Code</a></li>
+                    <li><a href="#">Demo</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 StreamingClaw. All rights reserved.</p>
+            <p><a href="https://www.lixiang.com/" target="_blank">Li Auto</a></p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="js/main.js"></script>
+</body>
+</html>
