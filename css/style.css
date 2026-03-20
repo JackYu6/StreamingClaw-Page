@@ -107,8 +107,8 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #FFF2D0 0%, #FFB2B2 50%, #E36A6A 100%);
-    color: #333;
+    background: linear-gradient(135deg, #53CBF3 0%, #5478FF 50%, #111FA2 100%);
+    color: white;
     padding: var(--spacing-xl) var(--spacing-md);
     min-height: 80vh;
     display: flex;
@@ -125,7 +125,7 @@ body {
     font-size: 3.5rem;
     margin-bottom: var(--spacing-sm);
     animation: fadeInUp 1s ease;
-    color: #333;
+    color: white;
 }
 
 .title-icon {
@@ -136,9 +136,9 @@ body {
     font-size: 1.8rem;
     font-weight: 300;
     margin-bottom: var(--spacing-lg);
-    opacity: 0.8;
+    opacity: 0.9;
     animation: fadeInUp 1s ease 0.2s both;
-    color: #333;
+    color: white;
 }
 
 /* Author Information */
@@ -161,7 +161,7 @@ body {
 }
 
 .author a {
-    color: #333;
+    color: white;
     text-decoration: none;
 }
 
@@ -175,7 +175,7 @@ body {
     flex-wrap: wrap;
     gap: var(--spacing-sm);
     font-size: 0.9rem;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 /* Button Styles */
@@ -212,21 +212,21 @@ body {
 
 .btn-secondary {
     background-color: transparent;
-    color: #333;
-    border: 2px solid #333;
+    color: white;
+    border: 2px solid white;
 }
 
 .btn-secondary:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .btn-tertiary {
-    background-color: rgba(0, 0, 0, 0.15);
-    color: #333;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 .btn-tertiary:hover {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-copy {
@@ -245,12 +245,11 @@ body {
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: var(--spacing-lg);
     border-radius: 10px;
     backdrop-filter: blur(10px);
     animation: fadeInUp 1s ease 0.8s both;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .abstract h3 {
