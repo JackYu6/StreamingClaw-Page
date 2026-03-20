@@ -107,8 +107,8 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(to bottom, #111FA2 0%, #5478FF 50%, #53CBF3 100%);
-    color: white;
+    background: linear-gradient(to bottom, #89D4FF 0%, #FFFFFF 100%);
+    color: #333;
     padding: var(--spacing-xl) var(--spacing-md);
     min-height: 80vh;
     display: flex;
@@ -125,7 +125,7 @@ body {
     font-size: 3.5rem;
     margin-bottom: var(--spacing-sm);
     animation: fadeInUp 1s ease;
-    color: white;
+    color: #333;
 }
 
 .title-icon {
@@ -136,9 +136,9 @@ body {
     font-size: 1.8rem;
     font-weight: 300;
     margin-bottom: var(--spacing-lg);
-    opacity: 0.9;
+    opacity: 0.8;
     animation: fadeInUp 1s ease 0.2s both;
-    color: white;
+    color: #333;
 }
 
 /* Author Information */
@@ -161,7 +161,7 @@ body {
 }
 
 .author a {
-    color: white;
+    color: #333;
     text-decoration: none;
 }
 
@@ -175,7 +175,7 @@ body {
     flex-wrap: wrap;
     gap: var(--spacing-sm);
     font-size: 0.9rem;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 /* Button Styles */
@@ -212,21 +212,21 @@ body {
 
 .btn-secondary {
     background-color: transparent;
-    color: white;
-    border: 2px solid white;
+    color: #333;
+    border: 2px solid #333;
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .btn-tertiary {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.15);
+    color: #333;
 }
 
 .btn-tertiary:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .btn-copy {
