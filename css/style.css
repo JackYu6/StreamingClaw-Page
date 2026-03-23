@@ -398,6 +398,24 @@ body {
     transform: scale(1.02);
 }
 
+/* ProactiveMind Training Image */
+.proactive-training {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.proactive-training img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.proactive-training img:hover {
+    transform: scale(1.02);
+}
+
 /* Tools Section */
 .tools-intro {
     text-align: center;

@@ -91,7 +91,7 @@ function initializeAnimations() {
  */
 function initializeImageModal() {
     // Get all clickable images
-    const images = document.querySelectorAll('.framework-diagram img, .section-image img, .proactive-image-item img, .carousel-slide img');
+    const images = document.querySelectorAll('.framework-diagram img, .section-image img, .proactive-image-item img, .proactive-training img, .carousel-slide img');
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const modalCaption = document.getElementById('modalCaption');
