@@ -166,92 +166,124 @@ function initializeCopyButtons() {
  * Initialize carousel
  */
 function initializeCarousel() {
-    const carousel = document.querySelector('.carousel');
-    if (!carousel) return;
+    const carouselContainers = document.querySelectorAll('.tools-carousel-container');
+    if (!carouselContainers.length) return;
 
-    const track = carousel.querySelector('.carousel-track');
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const prevBtn = carousel.querySelector('.carousel-prev');
-    const nextBtn = carousel.querySelector('.carousel-next');
-    const indicators = document.querySelectorAll('.indicator');
+    carouselContainers.forEach((container) => {
+        const carousel = container.querySelector('.carousel');
+        if (!carousel) return;
 
-    let currentIndex = 0;
-    const slideCount = slides.length;
+        const track = carousel.querySelector('.carousel-track');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        const indicators = container.querySelectorAll('.carousel-indicators .indicator');
 
-    // Update carousel position
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        let currentIndex = 0;
+        const slideCount = slides.length;
 
-        // Update indicator state
+        // Update carousel position
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Update indicator state
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Next slide
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            updateCarousel();
+        }
+
+        // Previous slide
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            updateCarousel();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Bind button events
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+        // Bind indicator events
         indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
+            indicator.addEventListener('click', () => goToSlide(index));
         });
-    }
 
-    // Next slide
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateCarousel();
-    }
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-    // Previous slide
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateCarousel();
-    }
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
 
-    // Go to specific slide
-    function goToSlide(index) {
-        currentIndex = index;
-        updateCarousel();
-    }
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
 
-    // Bind button events
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
 
-    // Bind indicator events
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => goToSlide(index));
-    });
-
-    // Touch swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
             }
         }
-    }
+    });
 
-    // Keyboard support
+    // Keyboard support (global, for the first visible carousel)
     document.addEventListener('keydown', (e) => {
-        // Check if carousel is in viewport
-        const rect = carousel.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        const carouselContainers = document.querySelectorAll('.tools-carousel-container');
+        for (const container of carouselContainers) {
+            const carousel = container.querySelector('.carousel');
+            const rect = carousel.getBoundingClientRect();
+            const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
 
-        if (isInViewport) {
-            if (e.key === 'ArrowLeft') {
-                prevSlide();
-            } else if (e.key === 'ArrowRight') {
-                nextSlide();
+            if (isInViewport) {
+                const track = carousel.querySelector('.carousel-track');
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const slideCount = slides.length;
+                let currentTransform = track.style.transform;
+                let currentIndex = 0;
+
+                if (currentTransform) {
+                    const match = currentTransform.match(/-?(\d+\.?\d*)%/);
+                    if (match) {
+                        currentIndex = Math.round(parseFloat(match[1]) / 100);
+                    }
+                }
+
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    const indicators = container.querySelectorAll('.carousel-indicators .indicator');
+                    indicators.forEach((indicator, index) => {
+                        indicator.classList.toggle('active', index === currentIndex);
+                    });
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % slideCount;
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    const indicators = container.querySelectorAll('.carousel-indicators .indicator');
+                    indicators.forEach((indicator, index) => {
+                        indicator.classList.toggle('active', index === currentIndex);
+                    });
+                }
+                break;
             }
         }
     });
