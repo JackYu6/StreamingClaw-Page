@@ -188,6 +188,16 @@
                 <div class="proactive-training">
                     <img src="images/proactiveMind_training.jpg" alt="ProactiveMind Training" id="proactiveTrainingImg">
                     <p class="figure-caption"><strong>Flowchart of the training-based adaptation pipeline for the StreamingProactivity agent.</strong></p>
+                    <div class="section-text" style="margin-top: 1.5rem;">
+                        <p>
+                            The training adaptation approach can achieve the following objectives:
+                        </p>
+                        <ul class="features-list">
+                            <li><strong>Support multiple event types:</strong> The agent can connect to diverse proactive interaction scenarios via a unified visual-signal triggering interface. With scenario-specific signal mappings, it improves the accuracy of multi-event recognition, stabilizes trigger timing, and enhances cross-scenario generalization.</li>
+                            <li><strong>Customizable events with high recognition accuracy:</strong> By constructing domain-tailored video training data, the training scheme learns the correspondence between events and proactive signals, achieving higher event recognition accuracy than non-training-based approaches.</li>
+                            <li><strong>Reduced inference overhead:</strong> When multiple proactive interaction requirements coexist (e.g., time-aware requests together with multiple event-aware requests), the model can generate multiple scenario-specific tokens as response signals in a single forward pass, instead of running inference multiple times to produce multiple signals.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
