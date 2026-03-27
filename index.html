@@ -61,7 +61,7 @@
                     <i class="fas fa-file-pdf"></i> Paper
                 </a>
                 <a href="https://huggingface.co/collections/LiAuto-Foundation-Model/streamingclaw" class="btn btn-secondary">
-                    <img src="images/HuggingFace-Logo.png" alt="HuggingFace" style="height: 1em; margin-right: 0.3em;"> HuggingFace
+                    <img src="images/HuggingFace-Logo.png" alt="Hugging Face" style="height: 1em; margin-right: 0.3em;"> Hugging Face
                 </a>
                 <!--
                 <a href="#" class="btn btn-tertiary">
@@ -123,7 +123,7 @@
                         StreamingReasoning targets streaming video understanding scenarios with continuous input and output. Its main goal is to achieve real-time perception, understanding, and reasoning under low-latency constraints, responding to user queries and producing results in real time.
                     </p>
                     <ul class="features-list">
-                        <li><strong>Streaming Inference:</strong> StreamingReasoning enables real-time streaming video reasoning by chunking incoming video, using a dynamic sliding window to bound context, and leveraging a pruned streaming KV-cache for efficient incremental decoding, thereby maintaining low-latency understanding and response generation over long video streams.</li>
+                        <li><strong>Streaming Inference:</strong> StreamingReasoning enables real-time streaming video reasoning by chunking incoming video, using a dynamic sliding window to bound context, and leveraging a pruned streaming KV-cache for efficient incremental decoding.</li>
                         <li><strong>Self-Planning Scheduling:</strong> StreamingReasoning dynamically parses user instructions to self-plan and schedule sub-agents, optionally retrieving hierarchical memory or delegating proactive interaction decisions, otherwise performing direct low-latency streaming multimodal reasoning.</li>
                     </ul>
                 </div>
@@ -185,17 +185,19 @@
                     </div>
                 </div>
 
-                <div class="proactive-training">
-                    <img src="images/proactiveMind_training.jpg" alt="ProactiveMind Training" id="proactiveTrainingImg">
-                    <p class="figure-caption"><strong>Flowchart of the training-based adaptation pipeline for the StreamingProactivity agent.</strong></p>
-                    <div class="section-text" style="margin-top: 1.5rem;">
+                <div class="proactive-training" style="display: flex; gap: 2rem; align-items: flex-start;">
+                    <div class="section-image" style="flex: 1;">
+                        <img src="images/proactiveMind_training.jpg" alt="ProactiveMind Training" id="proactiveTrainingImg" style="width: 100%;">
+                        <p class="figure-caption"><strong>Flowchart of the training-based adaptation pipeline for the StreamingProactivity agent.</strong></p>
+                    </div>
+                    <div class="section-text" style="flex: 1;">
                         <p>
                             The training adaptation approach can achieve the following objectives:
                         </p>
                         <ul class="features-list">
-                            <li><strong>Support multiple event types:</strong> The agent can connect to diverse proactive interaction scenarios via a unified visual-signal triggering interface. With scenario-specific signal mappings, it improves the accuracy of multi-event recognition, stabilizes trigger timing, and enhances cross-scenario generalization.</li>
-                            <li><strong>Customizable events with high recognition accuracy:</strong> By constructing domain-tailored video training data, the training scheme learns the correspondence between events and proactive signals, achieving higher event recognition accuracy than non-training-based approaches.</li>
-                            <li><strong>Reduced inference overhead:</strong> When multiple proactive interaction requirements coexist (e.g., time-aware requests together with multiple event-aware requests), the model can generate multiple scenario-specific tokens as response signals in a single forward pass, instead of running inference multiple times to produce multiple signals.</li>
+                            <li><strong>Support Multiple Event Types:</strong> The agent can connect to diverse proactive interaction scenarios via a unified visual-signal triggering interface. With scenario-specific signal mappings, it improves the accuracy of multi-event recognition, and enhances cross-scenario generalization.</li>
+                            <li><strong>Customizable Events with High Recognition Accuracy:</strong> By constructing domain-tailored video training data, the training scheme learns the correspondence between events and proactive signals, achieving higher event recognition accuracy than non-training-based approaches.</li>
+                            <li><strong>Reduced Inference Overhead:</strong> When multiple proactive interaction requirements coexist, the model can generate multiple scenario-specific tokens as response signals in a single forward pass, instead of running inference multiple times to produce multiple signals.</li>
                         </ul>
                     </div>
                 </div>
@@ -341,7 +343,7 @@
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="https://arxiv.org/abs/2603.22120">Paper</a></li>
-                    <li><a href="https://huggingface.co/collections/LiAuto-Foundation-Model/streamingclaw">HuggingFace</a></li>
+                    <li><a href="https://huggingface.co/collections/LiAuto-Foundation-Model/streamingclaw">Hugging Face</a></li>
                     <!--
                     <li><a href="#">Code</a></li>
                     <li><a href="#">Demo</a></li>
