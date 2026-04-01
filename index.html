@@ -236,10 +236,16 @@
                 </div>
             </div>
 
-            
+
             <h3 style="margin: 3rem 0 1rem 0; font-size: 1.5rem; color: #333; text-align: center;">Embodied Interaction Skill Library</h3>
 
-            <div class="tools-carousel-container">
+            <!-- Language Toggle Buttons -->
+            <div class="language-toggle">
+                <button class="lang-btn lang-btn-active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+            </div>
+
+            <div class="tools-carousel-container" id="skillCarouselContainer">
                 <div class="carousel">
                     <button class="carousel-btn carousel-prev" aria-label="Previous">
                         <i class="fas fa-chevron-left"></i>
@@ -247,21 +253,39 @@
 
                     <div class="carousel-track-container">
                         <div class="carousel-track">
-                            <div class="carousel-slide">
-                                <video src="videos/demo_1.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                            <!-- English Videos -->
+                            <div class="carousel-slide" data-lang="en">
+                                <video src="videos/demo_1_en.mp4" controls style="width: 100%; max-width: 800px;"></video>
                                 <p class="figure-caption"><strong>Daily streaming dialogue - multi-agent collaboration:</strong> proactive interaction and cross-agent streaming multimodal memory</p>
                             </div>
-                            <div class="carousel-slide">
-                                <video src="videos/demo_2.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                            <div class="carousel-slide" data-lang="en">
+                                <video src="videos/demo_2_en.mp4" controls style="width: 100%; max-width: 800px;"></video>
                                 <p class="figure-caption"><strong>Embodied vehicle skill - driver monitoring system:</strong> serving as a driving companion assistant to provide safety protection and emotional support</p>
                             </div>
-                            <div class="carousel-slide">
-                                <video src="videos/demo_3.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                            <div class="carousel-slide" data-lang="en">
+                                <video src="videos/demo_3_en.mp4" controls style="width: 100%; max-width: 800px;"></video>
                                 <p class="figure-caption"><strong>Embodied vehicle skill - vehicle welcome:</strong> serving as a thoughtful travel concierge</p>
                             </div>
-                            <div class="carousel-slide">
-                                <video src="videos/demo_4.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                            <div class="carousel-slide" data-lang="en">
+                                <video src="videos/demo_4_en.mp4" controls style="width: 100%; max-width: 800px;"></video>
                                 <p class="figure-caption"><strong>Embodied robot skill - home care:</strong> providing elderly companionship, family caregiving, round-the-clock continuous care, and danger alerts</p>
+                            </div>
+                            <!-- Chinese Videos -->
+                            <div class="carousel-slide" data-lang="zh" style="display: none;">
+                                <video src="videos/demo_1_zh.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                                <p class="figure-caption"><strong>日常流式对话 - 多 agent 协作：</strong>主动交互，跨 agent 流式多模态记忆</p>
+                            </div>
+                            <div class="carousel-slide" data-lang="zh" style="display: none;">
+                                <video src="videos/demo_2_zh.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                                <p class="figure-caption"><strong>具身汽车 skill - 驾驶员监测系统：</strong>作为一个驾驶陪伴助手，提供安全防护和情绪价值</p>
+                            </div>
+                            <div class="carousel-slide" data-lang="zh" style="display: none;">
+                                <video src="videos/demo_3_zh.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                                <p class="figure-caption"><strong>具身汽车 skill - 车辆迎宾：</strong>做一个知心的出行管家</p>
+                            </div>
+                            <div class="carousel-slide" data-lang="zh" style="display: none;">
+                                <video src="videos/demo_4_zh.mp4" controls style="width: 100%; max-width: 800px;"></video>
+                                <p class="figure-caption"><strong>具身机器人 skill - 家庭看护：</strong>老龄陪伴，家庭护工，全天候持续陪护，危险告警</p>
                             </div>
                         </div>
                     </div>

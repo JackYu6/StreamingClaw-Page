@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     initializeImageModal();
     initializeCopyButtons();
+    initializeLanguageToggle();
     initializeCarousel();
 });
 
@@ -163,6 +164,50 @@ function initializeCopyButtons() {
 }
 
 /**
+ * Initialize language toggle for skill carousel
+ */
+function initializeLanguageToggle() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const skillCarouselContainer = document.getElementById('skillCarouselContainer');
+
+    if (!skillCarouselContainer || !langButtons.length) return;
+
+    langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedLang = this.getAttribute('data-lang');
+
+            // Update button states
+            langButtons.forEach(btn => {
+                btn.classList.remove('lang-btn-active');
+            });
+            this.classList.add('lang-btn-active');
+
+            // Show/hide slides based on language
+            const slides = skillCarouselContainer.querySelectorAll('.carousel-slide');
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+
+            // Show only slides with selected language
+            const visibleSlides = skillCarouselContainer.querySelectorAll(`.carousel-slide[data-lang="${selectedLang}"]`);
+            visibleSlides.forEach(slide => {
+                slide.style.display = 'block';
+            });
+
+            // Reset carousel to first slide
+            const track = skillCarouselContainer.querySelector('.carousel-track');
+            track.style.transform = 'translateX(0)';
+
+            // Reset indicators
+            const indicators = skillCarouselContainer.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === 0);
+            });
+        });
+    });
+}
+
+/**
  * Initialize carousel
  */
 function initializeCarousel() {
@@ -174,16 +219,30 @@ function initializeCarousel() {
         if (!carousel) return;
 
         const track = carousel.querySelector('.carousel-track');
-        const slides = carousel.querySelectorAll('.carousel-slide');
         const prevBtn = carousel.querySelector('.carousel-prev');
         const nextBtn = carousel.querySelector('.carousel-next');
         const indicators = container.querySelectorAll('.carousel-indicators .indicator');
 
         let currentIndex = 0;
-        const slideCount = slides.length;
+
+        // Get visible slides (for skill carousel with language filter)
+        function getVisibleSlides() {
+            const allSlides = carousel.querySelectorAll('.carousel-slide');
+            return Array.from(allSlides).filter(slide => slide.style.display !== 'none');
+        }
 
         // Update carousel position
         function updateCarousel() {
+            const visibleSlides = getVisibleSlides();
+            const slideCount = visibleSlides.length;
+
+            if (slideCount === 0) return;
+
+            // Clamp currentIndex to valid range
+            if (currentIndex >= slideCount) {
+                currentIndex = slideCount - 1;
+            }
+
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
             // Update indicator state
@@ -194,20 +253,31 @@ function initializeCarousel() {
 
         // Next slide
         function nextSlide() {
+            const visibleSlides = getVisibleSlides();
+            const slideCount = visibleSlides.length;
+            if (slideCount === 0) return;
+
             currentIndex = (currentIndex + 1) % slideCount;
             updateCarousel();
         }
 
         // Previous slide
         function prevSlide() {
+            const visibleSlides = getVisibleSlides();
+            const slideCount = visibleSlides.length;
+            if (slideCount === 0) return;
+
             currentIndex = (currentIndex - 1 + slideCount) % slideCount;
             updateCarousel();
         }
 
         // Go to specific slide
         function goToSlide(index) {
-            currentIndex = index;
-            updateCarousel();
+            const visibleSlides = getVisibleSlides();
+            if (index < visibleSlides.length) {
+                currentIndex = index;
+                updateCarousel();
+            }
         }
 
         // Bind button events
@@ -257,7 +327,8 @@ function initializeCarousel() {
             if (isInViewport) {
                 const track = carousel.querySelector('.carousel-track');
                 const slides = carousel.querySelectorAll('.carousel-slide');
-                const slideCount = slides.length;
+                const visibleSlides = Array.from(slides).filter(slide => slide.style.display !== 'none');
+                const slideCount = visibleSlides.length;
                 let currentTransform = track.style.transform;
                 let currentIndex = 0;
 

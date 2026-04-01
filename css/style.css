@@ -429,6 +429,39 @@ body {
     color: var(--text-light);
 }
 
+/* Language Toggle */
+.language-toggle {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.lang-btn {
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    color: var(--secondary-color);
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: rgba(52, 152, 223, 0.1);
+}
+
+.lang-btn-active {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.lang-btn-active:hover {
+    background-color: #2980b9;
+}
+
 .tools-carousel-container {
     margin-top: var(--spacing-lg);
 }
