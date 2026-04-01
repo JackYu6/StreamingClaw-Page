@@ -182,27 +182,30 @@ function initializeLanguageToggle() {
             });
             this.classList.add('lang-btn-active');
 
-            // Show/hide slides based on language
-            const slides = skillCarouselContainer.querySelectorAll('.carousel-slide');
-            slides.forEach(slide => {
-                slide.style.display = 'none';
-            });
-
-            // Show only slides with selected language
-            const visibleSlides = skillCarouselContainer.querySelectorAll(`.carousel-slide[data-lang="${selectedLang}"]`);
-            visibleSlides.forEach(slide => {
-                slide.style.display = 'block';
+            // Show/hide slides based on data-lang attribute
+            const allSlides = skillCarouselContainer.querySelectorAll('.carousel-slide');
+            allSlides.forEach(slide => {
+                const slideLang = slide.getAttribute('data-lang');
+                slide.style.display = (slideLang === selectedLang) ? 'block' : 'none';
             });
 
             // Reset carousel to first slide
             const track = skillCarouselContainer.querySelector('.carousel-track');
-            track.style.transform = 'translateX(0)';
+            if (track) {
+                track.style.transform = 'translateX(0)';
+            }
 
             // Reset indicators
             const indicators = skillCarouselContainer.querySelectorAll('.indicator');
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === 0);
             });
+
+            // Reset carousel state
+            const carousel = skillCarouselContainer.querySelector('.carousel');
+            if (carousel && carousel.carouselState) {
+                carousel.carouselState.currentIndex = 0;
+            }
         });
     });
 }
@@ -225,10 +228,16 @@ function initializeCarousel() {
 
         let currentIndex = 0;
 
-        // Get visible slides (for skill carousel with language filter)
+        // Store carousel state on the carousel element for language toggle access
+        carousel.carouselState = { currentIndex: 0 };
+
+        // Get visible slides using computed style for better accuracy
         function getVisibleSlides() {
             const allSlides = carousel.querySelectorAll('.carousel-slide');
-            return Array.from(allSlides).filter(slide => slide.style.display !== 'none');
+            return Array.from(allSlides).filter(slide => {
+                const computedStyle = window.getComputedStyle(slide);
+                return computedStyle.display !== 'none';
+            });
         }
 
         // Update carousel position
@@ -242,6 +251,12 @@ function initializeCarousel() {
             if (currentIndex >= slideCount) {
                 currentIndex = slideCount - 1;
             }
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            }
+
+            // Update stored state
+            carousel.carouselState.currentIndex = currentIndex;
 
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
@@ -274,7 +289,7 @@ function initializeCarousel() {
         // Go to specific slide
         function goToSlide(index) {
             const visibleSlides = getVisibleSlides();
-            if (index < visibleSlides.length) {
+            if (index < visibleSlides.length && index >= 0) {
                 currentIndex = index;
                 updateCarousel();
             }
@@ -327,7 +342,10 @@ function initializeCarousel() {
             if (isInViewport) {
                 const track = carousel.querySelector('.carousel-track');
                 const slides = carousel.querySelectorAll('.carousel-slide');
-                const visibleSlides = Array.from(slides).filter(slide => slide.style.display !== 'none');
+                const visibleSlides = Array.from(slides).filter(slide => {
+                    const computedStyle = window.getComputedStyle(slide);
+                    return computedStyle.display !== 'none';
+                });
                 const slideCount = visibleSlides.length;
                 let currentTransform = track.style.transform;
                 let currentIndex = 0;
